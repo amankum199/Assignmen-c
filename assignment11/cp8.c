@@ -1,0 +1,1 @@
+/*Write a function to print PASCAL Triangle. (TSRN)*/
