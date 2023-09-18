@@ -1,14 +1,13 @@
-/*Write a program to calculate the sum of n numbers entered by the user using malloc
-and free.*/
+// Write a program in C to find the largest element using Dynamic Memory Allocation
 #include <stdio.h>
 #include <stdlib.h>
 int main()
 {
     int *ptr;
-    int i = 0, size = 0, sum = 0;
-    printf("Enter the size : ");
+    int i = 0, j = 0, size = 0,max=-99999;
+    printf("Enter size of array : ");
     scanf("%d", &size);
-    ptr = (int *)malloc(size * sizeof(int));
+    ptr = (int *)calloc(size, sizeof(int));
     if (ptr == NULL)
     {
         printf("Memory allocation failed..");
@@ -23,9 +22,12 @@ int main()
     }
     for (i = 0; i < size; i++)
     {
-        sum = sum + *(ptr + i);
+       if(ptr[i]>max)
+       {
+        max=ptr[i];
+       }
     }
-    printf("Sum is %d \n ", sum);
+    printf("Largest number is %d\n",max);
     free(ptr);
     return 0;
 }

@@ -1,12 +1,10 @@
-/*Write a program to ask the user to input a number of data values he would like to
-enter then create an array dynamically to accommodate the data values. Now take
-the input from the user and display the average of data values.*/
+/*Find out the maximum and minimum from an array using dynamic memory allocation in c */
 #include <stdio.h>
 #include <stdlib.h>
 int main()
 {
     int *ptr;
-    int i = 0, size = 0,sum = 0;
+    int i = 0, j = 0, size = 0, max = -99999, min = 99999;
     printf("Enter size of array : ");
     scanf("%d", &size);
     ptr = (int *)calloc(size, sizeof(int));
@@ -24,9 +22,20 @@ int main()
     }
     for (i = 0; i < size; i++)
     {
-        sum = sum + *(ptr + i);
+        if (ptr[i] > max)
+        {
+            max = ptr[i];
+        }
     }
-    printf("Average is %d \n ", sum / size);
+    printf("Largest number is %d\n", max);
+    for (i = 0; i < size; i++)
+    {
+        if (ptr[i] < min)
+        {
+            min = ptr[i];
+        }
+    }
+    printf("Smallest number is %d\n", min);
     free(ptr);
     return 0;
 }
